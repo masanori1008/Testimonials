@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<!--dependsOnConfig : disable items admin-->
+	<menu>
+        <add id="AHT_Testimonials::testimonials" title="Testimonials" translate="Testimonials" module="AHT_Testimonials" sortOrder="50"  resource="AHT_Testimonials::testimonials"/>
+    	<add id="AHT_Testimonials::index" title="Testimonials" module="AHT_Testimonials" parent="AHT_Testimonials::testimonials" action="testimonials/index/index" resource="AHT_Testimonials::index" sortOrder="55" />
+		<add id="AHT_Testimonials::customer1" title="Customer" module="AHT_Testimonials" parent="AHT_Testimonials::testimonials" action="testimonials/customer/index" resource="AHT_Testimonials::customer" sortOrder="57" />
+	</menu>
+</config>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <route url="/V1/Testimonials/:PostId" method="GET">
+        <service class="AHT\Testimonials\Api\TestimonialsRepositoryInterface" method="getTestimonialsById" />
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/Testimonials/GetList" method="GET">
+        <service class="AHT\Testimonials\Api\TestimonialsRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/Testimonials" method="POST">
+        <service class="AHT\Testimonials\Api\TestimonialsRepositoryInterface" method="createPost"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/Testimonials/:postId" method="PUT">
+        <service class="AHT\Testimonials\Api\TestimonialsRepositoryInterface" method="updatePost"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/Testimonials/:PostId" method="DELETE">
+        <service class="AHT\Testimonials\Api\TestimonialsRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/customers" method="POST">
+        <service class="Magento\Customer\Api\AccountManagementInterface" method="createAccount"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    
+</routes>

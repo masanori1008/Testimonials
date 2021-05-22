@@ -1,0 +1,38 @@
+<?php
+
+$items = $block->getAll();
+
+?>
+
+<ol class="testimonial-blog">
+        <?php
+        foreach ($items as $item) {
+            echo "<li>";
+            echo "<p class='testimonials-title'>What our clients are saying</p>";
+            ?>
+            <a class='testimonials-button' href="<?php echo $block->getCreate(); ?>"></a>
+            <?php
+            echo "<img src=".$block->getBaseUrl()."pub/media/testimonials/tmp/index/".$item->getImages().">";
+            echo "<p class='testimonials-message'>".$item->getMessage()."</p>";
+            echo "<p class='customer-name'>".$block->getNameCustomer($item->getCustomerid())."</p>";
+            echo "</li>";
+        }
+        ?>
+</ol>
+
+<script>
+    require([
+        'jquery',
+        'slick'
+    ], function ($) {
+        $(document).ready(function () {
+            $(".testimonial-blog").slick({
+                autoplay: false,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+            });
+        });
+    });
+</script>

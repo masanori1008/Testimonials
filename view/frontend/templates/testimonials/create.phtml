@@ -1,0 +1,55 @@
+<h3>ADD NEW TESTIMONIALS</h3>
+<div class="testimonial-create-form">
+    <form class="testimonial-blog-create" method="post" enctype="multipart/form-data" action="<?= $block->getUrl('testimonials/index/save')?>">
+        <div class="testimonial-blog-create-right">
+            <img src="" alt="" class="image-upload" />
+        </div>
+
+        <div class="testimonial-blog-create-left">
+            <label for="name">Your Name</label>
+            <input type="text" name="name" placeholder="Enter your Name..">
+
+            <label for="email">Your Email</label>
+            <input type="text" name="email" placeholder="Enter your Email..">
+
+            <label for="designation">Your Designation</label>
+            <input type="text" name="designation" placeholder="Enter your Designation..">
+
+            <label for="contact">Your Contact</label>
+            <input type="number" name="contact" placeholder="Enter your Contact..">
+
+            <label for="message">Your Message</label>
+            <textarea name="message" rows="10" cols="30" placeholder="Please enter your message.."></textarea>
+
+            <input type="submit" name="createBtn" class="createBtn" value="Submit Now">
+        </div>
+    </form>
+</div>
+
+<script>
+    require(['jquery', 'jquery/ui'], function($){
+
+        // Upload Image
+        $('.testimonial-blog-create-right').click(() => {
+            //Click chon file
+            const inputFile = document.createElement('input');
+            inputFile.setAttribute('type', 'file');
+            inputFile.setAttribute('name', 'images');
+            inputFile.setAttribute('class', 'd-none');
+            inputFile.click();
+
+            //Upload duoc anh;
+            $('.testimonial-blog-create-right').append(inputFile);
+            inputFile.addEventListener('change', (e) => {
+                if(inputFile.files.length > 0) {
+                    const file = inputFile.files[0];
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('.image-upload').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    });
+</script>
